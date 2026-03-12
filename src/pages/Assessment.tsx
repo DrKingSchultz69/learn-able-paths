@@ -42,7 +42,7 @@ export default function Assessment() {
 
   const ageNorm = getAgeNorm(user?.age ?? 14);
 
-  if (!user) return null;
+  // early return moved after all hooks
   const totalSteps = 3;
   const currentStep = step === "reading" ? 1 : step === "rhyme" ? 2 : step === "handwriting" ? 3 : 0;
 
