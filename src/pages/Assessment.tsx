@@ -119,6 +119,8 @@ export default function Assessment() {
     navigate(`/results/${assessment.id}`);
   }, [rhymeCorrect, totalReactionTime, wpm, ageNorm, reversalCount, timeTaken, user, navigate]);
 
+  if (!user) return null;
+
   return (
     <div className="container max-w-2xl py-10 animate-fade-in">
       {step !== "intro" && (
