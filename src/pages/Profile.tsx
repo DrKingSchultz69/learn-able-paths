@@ -8,11 +8,11 @@ import { toast } from "sonner";
 
 export default function Profile() {
   const { user, updateUser } = useAuth();
-  if (!user) return null;
+  const [name, setName] = useState(user?.name ?? "");
+  const [age, setAge] = useState(String(user?.age ?? ""));
+  const [role, setRole] = useState(user?.role ?? "Student");
 
-  const [name, setName] = useState(user.name);
-  const [age, setAge] = useState(String(user.age));
-  const [role, setRole] = useState(user.role);
+  if (!user) return null;
 
   const handleSave = () => {
     updateUser({ name, age: parseInt(age), role });

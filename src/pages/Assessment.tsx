@@ -40,9 +40,9 @@ export default function Assessment() {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  if (!user) return null;
+  const ageNorm = getAgeNorm(user?.age ?? 14);
 
-  const ageNorm = getAgeNorm(user.age);
+  if (!user) return null;
   const totalSteps = 3;
   const currentStep = step === "reading" ? 1 : step === "rhyme" ? 2 : step === "handwriting" ? 3 : 0;
 
